@@ -10,7 +10,7 @@
     "prebuild": "npm run clean:dist && npm run generate-client",
     "build": "webpack",
     "clean:dist": "rimraf dist/",
-    "generate-client": "openapi-generator generate -i personio-api.yaml -g typescript-fetch -o ./src",
+    "generate-client": "rimraf src && openapi-generator generate -i personio-api.yaml -g typescript-fetch -o ./src",
     "sort-package-json": "sort-package-json"
   },
   "devDependencies": {
