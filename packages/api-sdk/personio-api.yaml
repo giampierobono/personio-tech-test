@@ -2,9 +2,9 @@ openapi: 3.0.1
 info:
   title: Personio tech test API
   description: OpenAPI 3.0 description of Personio tech test API
-  version: '0.1'
+  version: "0.1"
 servers:
-  - url: 'http://personio-fe-test.herokuapp.com'
+  - url: "http://personio-fe-test.herokuapp.com"
 paths:
   /api/v1/candidates:
     get:
@@ -15,12 +15,28 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Candidates'
+                type: object
+                required:
+                  - data
+                properties:
+                  data:
+                    $ref: "#/components/schemas/Candidates"
+        "500":
+          description: A fatal error occurred
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - error
+                properties:
+                  error:
+                    $ref: "#/components/schemas/Error"
 components:
   schemas:
     ApplicationStatus:
       type: string
-      enum: ['approved', 'rejected', 'waiting']
+      enum: ["approved", "rejected", "waiting"]
     Candidate:
       type: object
       required:
@@ -50,8 +66,19 @@ components:
         application_date:
           type: string
         status:
-          $ref: '#/components/schemas/ApplicationStatus'
+          $ref: "#/components/schemas/ApplicationStatus"
     Candidates:
       type: array
       items:
         $ref: "#/components/schemas/Candidate"
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
