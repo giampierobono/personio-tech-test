@@ -1,0 +1,9 @@
+{
+  "extends": "../../configurations/tsconfig",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "rootDir": "src",
+    "typeRoots": ["./custom-types", "./node_modules/@types"]
+  }
+}
