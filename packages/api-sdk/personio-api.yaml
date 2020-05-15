@@ -16,22 +16,11 @@ paths:
             application/json:
               schema:
                 type: object
-                required:
-                  - data
                 properties:
                   data:
                     $ref: "#/components/schemas/Candidates"
-        "500":
-          description: A fatal error occurred
-          content:
-            application/json:
-              schema:
-                type: object
-                required:
-                  - error
-                properties:
                   error:
-                    $ref: "#/components/schemas/Error"
+                    $ref: "#/components/schemas/FatalError"
 components:
   schemas:
     ApplicationStatus:
@@ -71,7 +60,7 @@ components:
       type: array
       items:
         $ref: "#/components/schemas/Candidate"
-    Error:
+    FatalError:
       type: object
       required:
         - code
