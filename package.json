@@ -19,7 +19,20 @@
   "license": "MIT",
   "author": "Giampiero Bono (giampiero.bono@hotmail.it)",
   "scripts": {
-    "preinstall": "node ./scripts/check-npm.js"
+    "build:api-sdk": "lerna run build --scope @personio/api-sdk",
+    "build:api-sdk:prod": "cross-env ENV=production lerna run build --scope @personio/api-sdk",
+    "build:local:deps": "lerna run build --parallel",
+    "clean:dist:all": "lerna run clean:dist --parallel",
+    "clean:dist:api-sdk": "lerna run clean:dist --scope @personio/api-sdk",
+    "clean:node_modules:all": "lerna clean --yes && npm run clean:node_modules:root",
+    "clean:node_modules:api-sdk": "lerna clean --yes --scope @personio/api-sdk",
+    "clean:node_modules:root": "rimraf node_modules",
+    "concurrently": "concurrently --kill-others-on-fail",
+    "preinstall": "node scripts/check-npm.js",
+    "postinstall": "lerna bootstrap --hoist && cross-env ENV=production lerna run build --parallel",
+    "sort-package-json:all": "yarn concurrently \"npm run sort-package-json:root\" \"lerna run sort-package-json --parallel\"",
+    "sort-package-json:api-sdk": "lerna run sort-package-json --scope @personio/api-sdk",
+    "sort-package-json:root": "sort-package-json package.json"
   },
   "husky": {
     "hooks": {
@@ -32,14 +45,27 @@
     }
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
     "commitizen": "^4.1.2",
+    "concurrently": "^5.2.0",
+    "cross-env": "^7.0.2",
     "cz-conventional-changelog": "^3.2.0",
+    "eslint": "^7.0.0",
+    "eslint-plugin-jsdoc": "^25.4.1",
+    "eslint-plugin-prefer-arrow": "^1.2.1",
     "husky": "^4.2.5",
     "lerna": "^3.21.0",
     "lint-staged": "^10.2.2",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
-    "sort-package-json": "^1.42.2"
+    "sort-package-json": "^1.42.2",
+    "ts-loader": "^7.0.4",
+    "typescript": "^3.9.2",
+    "webpack": "^4.43.0",
+    "webpack-build-notifier": "^2.0.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-node-externals": "^1.7.2"
   },
   "engines": {
     "node": ">=13.0.0"
