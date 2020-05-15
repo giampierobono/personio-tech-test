@@ -1,0 +1,47 @@
+{
+  "name": "@personio/root",
+  "version": "1.0.0",
+  "description": "Monorepo for Tech test for Senior Frontend position",
+  "keywords": [
+    "reactjs",
+    "redux",
+    "lerna",
+    "webpack"
+  ],
+  "homepage": "https://github.com/giampierobono/personio-tech-test#readme",
+  "bugs": {
+    "url": "https://github.com/giampierobono/personio-tech-test/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giampierobono/personio-tech-test.git"
+  },
+  "license": "MIT",
+  "author": "Giampiero Bono (giampiero.bono@hotmail.it)",
+  "scripts": {
+    "preinstall": "node ./scripts/check-npm.js"
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "^3.2.0",
+    "husky": "^4.2.5",
+    "lerna": "^3.21.0",
+    "lint-staged": "^10.2.2",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "sort-package-json": "^1.42.2"
+  },
+  "engines": {
+    "node": ">=13.0.0"
+  }
+}
