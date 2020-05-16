@@ -24,12 +24,12 @@ export const candidatesApiReducer = createReducer(candidatesApiInitialState, {
   }),
   [CandidatesListRetrieved]: (state: CandidatesApiState, { payload }) => ({
     ...state,
-    candidates: [...payload.candidates],
+    candidates: [...payload],
     isLoading: false,
   }),
   [CandidatesListError]: (state: CandidatesApiState, { payload }) => ({
     ...state,
-    error: { ...payload.error },
+    error: { ...payload },
     isLoading: false,
   }),
 });

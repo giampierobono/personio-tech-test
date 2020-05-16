@@ -15,7 +15,11 @@ export const setNewSortCandidatesConfigAction: ActionCreatorWithPayload<Candidat
   (sortBy: CandidatesSortByEnum) => ({ payload: sortBy })
 );
 
-export const setNewFilterCandidatesConfigAction: ActionCreatorWithPayload<FilterCandidatesConfigModel> = createAction(
+export const setNewFilterCandidatesConfigAction: ActionCreatorWithPayload<Partial<
+  FilterCandidatesConfigModel
+>> = createAction(
   SetNEwFilterCandidateConfig,
-  (filterConfig: FilterCandidatesConfigModel) => ({ payload: filterConfig })
+  (filterConfig: Partial<FilterCandidatesConfigModel>) => ({
+    payload: filterConfig,
+  })
 );
