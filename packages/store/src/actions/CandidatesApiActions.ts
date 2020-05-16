@@ -14,25 +14,6 @@ export const CandidatesListRetrieved =
 export const CandidatesListError =
   "[Candidates API] Error retrieving candidates list";
 
-export interface StartRetrieveCandidatesListAction {
-  type: typeof StartRetrieveCandidatesList;
-}
-
-export interface CandidatesListRetrievedAction {
-  type: typeof CandidatesListRetrieved;
-  payload: Array<Candidate>;
-}
-
-export interface CandidatesListErrorAction {
-  type: typeof CandidatesListError;
-  payload: FatalError;
-}
-
-export type CandidatesActionsType =
-  | StartRetrieveCandidatesListAction
-  | CandidatesListRetrievedAction
-  | CandidatesListErrorAction;
-
 export const startRetrieveCandidatesListAction: ActionCreatorWithoutPayload = createAction(
   StartRetrieveCandidatesList
 );
