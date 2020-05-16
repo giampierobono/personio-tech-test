@@ -4,11 +4,13 @@ info:
   description: OpenAPI 3.0 description of Personio tech test API
   version: "0.1"
 servers:
-  - url: "http://personio-fe-test.herokuapp.com"
+  - url: "http://personio-fe-test.herokuapp.com/api/v1"
 paths:
-  /api/v1/candidates:
+  /candidates:
     get:
       description: Retrieve list of candidates for Personio
+      tags:
+        - candidates
       responses:
         "200":
           description: A list of candidates
@@ -24,50 +26,66 @@ paths:
 components:
   schemas:
     ApplicationStatus:
+      description: Define possible candidate application status
       type: string
-      enum: ["approved", "rejected", "waiting"]
+      enum:
+        - "approved"
+        - "rejected"
+        - "waiting"
     Candidate:
       type: object
+      description: Represents a single candidate object
       required:
         - id
         - name
         - email
         - birth_date
-        - years_of_experice
+        - year_of_experience
         - position_applied
         - application_date
         - status
       properties:
         id:
+          description: Candidate id
           type: integer
           format: int64
         name:
+          description: Candidate name and surname
           type: string
         email:
+          description: Candidate email
           type: string
         birth_date:
+          description: Candidate birth date
           type: string
         year_of_experience:
+          description: Candidate years of experience
           type: integer
           format: int64
         position_applied:
+          description: Position for which candidate applied for
           type: string
         application_date:
+          description: Date when candidate applied
           type: string
         status:
           $ref: "#/components/schemas/ApplicationStatus"
     Candidates:
       type: array
+      description: Represents an array of candidate objects
       items:
         $ref: "#/components/schemas/Candidate"
     FatalError:
       type: object
+      description: Represents fatal error resposne
       required:
         - code
         - message
       properties:
         code:
+          description: Error code
           type: integer
           format: int32
         message:
+          description: Error message
           type: string

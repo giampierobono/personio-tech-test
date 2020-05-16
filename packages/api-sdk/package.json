@@ -5,19 +5,23 @@
   "license": "MIT",
   "author": "Giampiero Bono (giampiero.bono@hotmail.it)",
   "main": "./dist/api-sdk.js",
-  "types": "./dist/types.d.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "prebuild": "npm run clean:dist && npm run generate-client",
     "build": "webpack",
     "clean:dist": "rimraf dist/",
-    "generate-client": "rimraf src && openapi-generator generate -i personio-api.yaml -g typescript-fetch -o ./src",
+    "pregenerate-client": "rimraf src",
+    "generate-client": "openapi-generator generate -i personio-api.yaml -g typescript-fetch -o ./src",
+    "postgenerate-client": "npm run generate-doc",
+    "pregenerate-doc": "rimraf doc",
+    "generate-doc": "openapi-generator generate -i personio-api.yaml -g asciidoc -o ./doc",
     "sort-package-json": "sort-package-json"
   },
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^1.0.13-4.3.1",
     "rimraf": "^3.0.2",
-    "typescript": "^3.9.2",
     "sort-package-json": "^1.42.2",
+    "typescript": "^3.9.2",
     "webpack": "^4.43.0"
   }
 }
