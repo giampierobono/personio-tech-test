@@ -17,7 +17,6 @@
     "noUnusedLocals": false,
     "declaration": true,
     "declarationMap": true,
-    "allowSyntheticDefaultImports": true,
-    "typeRoots": ["../node_modules/@types"]
+    "allowSyntheticDefaultImports": true
   }
 }

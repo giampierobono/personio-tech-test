@@ -21,7 +21,10 @@
   "scripts": {
     "build:api-sdk": "lerna run build --scope @personio/api-sdk",
     "build:api-sdk:prod": "cross-env ENV=production lerna run build --scope @personio/api-sdk",
-    "build:local:deps": "lerna run build --parallel",
+    "build:local:deps": "npm run build:api-sdk:prod && npm run build:store:prod",
+    "build:store": "lerna run build --scope @personio/store",
+    "build:store:prod": "cross-env ENV=production lerna run build --scope @personio/store",
+    "clean:all": "npm run clean:dist:all && npm run clean:node_modules:all",
     "clean:dist:all": "lerna run clean:dist --parallel",
     "clean:dist:api-sdk": "lerna run clean:dist --scope @personio/api-sdk",
     "clean:node_modules:all": "lerna clean --yes && npm run clean:node_modules:root",
@@ -29,8 +32,8 @@
     "clean:node_modules:root": "rimraf node_modules",
     "concurrently": "concurrently --kill-others-on-fail",
     "preinstall": "node scripts/check-npm.js",
-    "postinstall": "lerna bootstrap --hoist && cross-env ENV=production lerna run build --parallel",
-    "sort-package-json:all": "yarn concurrently \"npm run sort-package-json:root\" \"lerna run sort-package-json --parallel\"",
+    "postinstall": "lerna bootstrap --hoist && npm run build:local:deps",
+    "sort-package-json:all": "npm run concurrently \"npm run sort-package-json:root\" \"lerna run sort-package-json --parallel\"",
     "sort-package-json:api-sdk": "lerna run sort-package-json --scope @personio/api-sdk",
     "sort-package-json:root": "sort-package-json package.json"
   },

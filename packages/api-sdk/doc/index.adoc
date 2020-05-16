@@ -1,0 +1,227 @@
+= Personio tech test API
+team@openapitools.org
+0.1
+:toc: left
+:numbered:
+:toclevels: 3
+:source-highlighter: highlightjs
+:keywords: openapi, rest, Personio tech test API 
+:specDir: 
+:snippetDir: 
+:generator-template: v1 2019-12-20
+:info-url: https://openapi-generator.tech
+:app-name: Personio tech test API
+
+[abstract]
+.Abstract
+OpenAPI 3.0 description of Personio tech test API
+
+
+// markup not found, no include::{specDir}intro.adoc[opts=optional]
+
+
+
+== Endpoints
+
+
+[.Candidates]
+=== Candidates
+
+
+[.candidatesGet]
+==== candidatesGet
+    
+`GET /candidates`
+
+
+
+===== Description 
+
+Retrieve list of candidates for Personio
+
+
+// markup not found, no include::{specDir}candidates/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+
+
+
+
+===== Return Type
+
+<<inline_response_200>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| A list of candidates
+|  <<inline_response_200>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}candidates/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}candidates/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :candidates/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}candidates/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[#models]
+== Models
+
+
+[#ApplicationStatus]
+=== _ApplicationStatus_ 
+
+Define possible candidate application status
+
+[.fields-ApplicationStatus]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+|===
+
+
+[#Candidate]
+=== _Candidate_ 
+
+Represents a single candidate object
+
+[.fields-Candidate]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| id 
+| X 
+| Long  
+| Candidate id
+| int64 
+
+| name 
+| X 
+| String  
+| Candidate name and surname
+|  
+
+| email 
+| X 
+| String  
+| Candidate email
+|  
+
+| birth_date 
+| X 
+| String  
+| Candidate birth date
+|  
+
+| year_of_experience 
+| X 
+| Long  
+| Candidate years of experience
+| int64 
+
+| position_applied 
+| X 
+| String  
+| Position for which candidate applied for
+|  
+
+| application_date 
+| X 
+| String  
+| Date when candidate applied
+|  
+
+| status 
+| X 
+| ApplicationStatus  
+| 
+|  
+
+|===
+
+
+[#FatalError]
+=== _FatalError_ 
+
+Represents fatal error resposne
+
+[.fields-FatalError]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| code 
+| X 
+| Integer  
+| Error code
+| int32 
+
+| message 
+| X 
+| String  
+| Error message
+|  
+
+|===
+
+
+[#InlineResponse200]
+=== _InlineResponse200_ 
+
+
+
+[.fields-InlineResponse200]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| data 
+|  
+| List  of <<Candidate>> 
+| Represents an array of candidate objects
+|  
+
+| error 
+|  
+| FatalError  
+| 
+|  
+
+|===
+
+
