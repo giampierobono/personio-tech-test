@@ -1,0 +1,21 @@
+{
+  "name": "@personio/data-models",
+  "version": "1.0.0",
+  "description": "Shared model interfaces across Personio projects",
+  "license": "MIT",
+  "author": "Giampiero Bono (giampiero.bono@hotmail.it)",
+  "main": "./dist/data-models.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "prebuild": "npm run clean:dist",
+    "build": "webpack",
+    "clean:dist": "rimraf dist/",
+    "sort-package-json": "sort-package-json"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "sort-package-json": "^1.42.2",
+    "typescript": "^3.9.2",
+    "webpack": "^4.43.0"
+  }
+}
