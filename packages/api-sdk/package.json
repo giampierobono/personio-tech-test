@@ -21,7 +21,7 @@
     "@openapitools/openapi-generator-cli": "^1.0.13-4.3.1",
     "rimraf": "^3.0.2",
     "sort-package-json": "^1.42.2",
-    "typescript": "^3.9.2",
-    "webpack": "^4.43.0"
+    "typescript": "~3.9.2",
+    "webpack": "4.42.0"
   }
 }

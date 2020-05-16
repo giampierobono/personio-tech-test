@@ -14,17 +14,25 @@ import {
 } from "ramda";
 
 const candidateNameSatisfies = (filterName: string) =>
-  propSatisfies((name: string) => name.includes(filterName), "name");
+  propSatisfies(
+    (name: string) =>
+      filterName.length === 0 ||
+      name.toLowerCase().includes(filterName.toLowerCase()),
+    "name"
+  );
 
 const candidateApplicationStatusSatisfies = (filterStatus: string) =>
   propSatisfies(
-    (status: ApplicationStatus) => (status as string) === filterStatus,
+    (status: ApplicationStatus) =>
+      filterStatus.length === 0 || (status as string) === filterStatus,
     "status"
   );
 
 const candidatePositionAppliedSatisfies = (position: string) =>
   propSatisfies(
-    (positionApplied: string) => positionApplied.includes(position),
+    (positionApplied: string) =>
+      positionApplied.length === 0 ||
+      positionApplied.toLowerCase().includes(position.toLowerCase()),
     "positionApplied"
   );
 

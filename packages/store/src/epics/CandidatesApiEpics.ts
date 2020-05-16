@@ -3,7 +3,7 @@ import { Action } from "redux";
 import {
   candidatesListErrorAction,
   candidatesListRetrievedAction,
-  StartRetrieveCandidatesList
+  StartRetrieveCandidatesList,
 } from "../actions";
 import { switchMap } from "rxjs/operators";
 import { fromPromise } from "rxjs/internal-compatibility";

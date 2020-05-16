@@ -22,13 +22,22 @@ export const candidatesListInitialState: CandidatesFilterSortState = {
   },
 };
 
-export const candidatesFilterSortReducer = createReducer(candidatesListInitialState, {
-  [SetNewSortCandidatesConfig]: (state: CandidatesFilterSortState, { payload }) => ({
-    ...state,
-    sortBy: payload,
-  }),
-  [SetNEwFilterCandidateConfig]: (state: CandidatesFilterSortState, { payload }) => ({
-    ...state,
-    filterConfig: { ...payload },
-  }),
-});
+export const candidatesFilterSortReducer = createReducer(
+  candidatesListInitialState,
+  {
+    [SetNewSortCandidatesConfig]: (
+      state: CandidatesFilterSortState,
+      { payload }
+    ) => ({
+      ...state,
+      sortBy: payload,
+    }),
+    [SetNEwFilterCandidateConfig]: (
+      state: CandidatesFilterSortState,
+      { payload }
+    ) => ({
+      ...state,
+      filterConfig: { ...state.filterConfig, ...payload },
+    }),
+  }
+);
