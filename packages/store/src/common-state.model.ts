@@ -1,5 +1,6 @@
-import {CandidatesState} from "./reducers";
+import {CandidatesApiState, CandidatesFilterSortState} from "./reducers";
 
 export interface CommonStateModel {
-    candidates: CandidatesState
+    candidatesApi: CandidatesApiState,
+    candidatesFilterSort: CandidatesFilterSortState
 }
