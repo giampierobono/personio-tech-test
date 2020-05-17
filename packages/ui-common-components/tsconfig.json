@@ -1,0 +1,10 @@
+{
+  "extends": "../../configurations/tsconfig",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "rootDir": "src",
+    "jsx": "react"
+  },
+  "exclude": ["node_modules", "**/__tests__", "__mocks__", "dist"]
+}

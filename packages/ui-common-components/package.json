@@ -1,10 +1,10 @@
 {
-  "name": "@personio/store",
+  "name": "@personio/ui-common-components",
   "version": "1.0.0",
-  "description": "Personio redux common set of actions, reducers, epics and selectors",
+  "description": "Set of UI common components to be used across Persionio projects",
   "license": "MIT",
   "author": "Giampiero Bono (giampiero.bono@hotmail.it)",
-  "main": "./dist/store.js",
+  "main": "./dist/ui-common-components.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "prebuild": "npm run clean:dist",
@@ -17,31 +17,24 @@
     "test": "jest --config jest.config.js --runInBand"
   },
   "dependencies": {
-    "@personio/api-sdk": "*",
     "@personio/data-models": "*"
   },
   "devDependencies": {
-    "@reduxjs/toolkit": "^1.3.6",
-    "@types/ramda": "^0.27.5",
+    "@types/react-test-renderer": "^16.9.2",
     "eslint": "^6.6.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "24.9.0",
-    "ramda": "^0.27.0",
-    "redux": "^4.0.5",
-    "redux-observable": "^1.2.0",
-    "reselect": "^4.0.0",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-test-renderer": "^16.13.1",
     "rimraf": "^3.0.2",
-    "rxjs": "^6.5.5",
     "sort-package-json": "^1.42.2",
     "typescript": "~3.9.2",
     "webpack": "4.42.0"
   },
   "peerDependencies": {
-    "@reduxjs/toolkit": "^1.3.6",
-    "@types/ramda": "^0.27.5",
-    "ramda": "^0.27.0",
-    "redux": "^4.0.5",
-    "redux-observable": "^1.2.0",
-    "reselect": "^4.0.0",
-    "rxjs": "^6.5.5"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }
