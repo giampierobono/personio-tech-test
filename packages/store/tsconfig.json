@@ -4,5 +4,11 @@
     "baseUrl": ".",
     "outDir": "./dist",
     "rootDir": "src"
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "**/__tests__",
+    "__mocks__",
+    "dist"
+  ]
 }
