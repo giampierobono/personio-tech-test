@@ -7,7 +7,7 @@ export interface CandidatesFilterSortState {
   readonly filterConfig: FilterCandidatesConfigModel;
 }
 
-export const candidatesListInitialState: CandidatesFilterSortState = {
+export const candidatesFilterSortInitialState: CandidatesFilterSortState = {
   sortBy: CandidatesSortByEnum.None,
   filterConfig: {
     name: '',
@@ -16,7 +16,7 @@ export const candidatesListInitialState: CandidatesFilterSortState = {
   },
 };
 
-export const candidatesFilterSortReducer = createReducer(candidatesListInitialState, {
+export const candidatesFilterSortReducer = createReducer(candidatesFilterSortInitialState, {
   [SetNewSortCandidatesConfig]: (state: CandidatesFilterSortState, { payload }) => ({
     ...state,
     sortBy: payload,
