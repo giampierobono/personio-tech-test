@@ -5,7 +5,7 @@ const baseApiSdk = jest.genMockFromModule('@personio/api-sdk');
 
 let mockResponse = Object.create(null);
 
-const __setMockResponse = (response: { data: Array<Candidate> } | FatalError) =>
+const __setMockResponse = (response: { data: Array<Candidate> } | { error: FatalError }) =>
   (mockResponse = response);
 
 class CandidatesApi {
