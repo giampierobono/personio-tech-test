@@ -1,2 +1,2 @@
-export * from "./CandidatesApiSelectors";
-export * from "./CandidatesFilterSortSelectors";
+export * from './CandidatesApiSelectors';
+export * from './CandidatesFilterSortSelectors';

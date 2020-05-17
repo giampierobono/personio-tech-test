@@ -1,13 +1,13 @@
-import { ActionsObservable, ofType } from "redux-observable";
-import { Action } from "redux";
+import { ActionsObservable, ofType } from 'redux-observable';
+import { CandidatesApi, InlineResponse200 } from '@personio/api-sdk';
 import {
+  StartRetrieveCandidatesList,
   candidatesListErrorAction,
   candidatesListRetrievedAction,
-  StartRetrieveCandidatesList,
-} from "../actions";
-import { switchMap } from "rxjs/operators";
-import { fromPromise } from "rxjs/internal-compatibility";
-import { CandidatesApi, InlineResponse200 } from "@personio/api-sdk";
+} from '../actions';
+import { Action } from 'redux';
+import { fromPromise } from 'rxjs/internal-compatibility';
+import { switchMap } from 'rxjs/operators';
 
 export const loadCandidatesList$ = (actions$: ActionsObservable<Action>) =>
   actions$.pipe(
@@ -17,8 +17,8 @@ export const loadCandidatesList$ = (actions$: ActionsObservable<Action>) =>
         switchMap((response: InlineResponse200) =>
           response.error
             ? [candidatesListErrorAction(response.error)]
-            : [candidatesListRetrievedAction(response.data || [])]
-        )
-      )
-    )
+            : [candidatesListRetrievedAction(response.data || [])],
+        ),
+      ),
+    ),
   );
