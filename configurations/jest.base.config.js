@@ -25,10 +25,9 @@ module.exports = {
   },
   rootDir: '../',
   moduleFileExtensions: ['ts', 'tsx', 'js'],
-  testMatch: ['**/__tests__/**/*.spec.ts'],
+  testMatch: ['**/__tests__/**/*.spec.(ts|tsx)'],
   testPathIgnorePatterns: ['/node_modules/'],
   moduleNameMapper: {
     '\\.(scss)$': 'identity-obj-proxy',
-    '^@vrbo/(.*)$': '<rootDir>/packages/$1',
   },
 };

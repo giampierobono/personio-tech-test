@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CandidatesListSortBySelectBox should render a disabled select box 1`] = `
+Array [
+  <label
+    className="selectBoxLabel"
+  >
+    Sort by
+  </label>,
+  <select
+    className="selectBox disabled"
+    onChange={[Function]}
+  >
+    <option
+      value="none"
+    >
+      No sort
+    </option>
+    <option
+      value="yearOfExperience"
+    >
+      Years of experience
+    </option>
+    <option
+      value="applicationDate"
+    >
+      Application date
+    </option>
+    <option
+      value="positionApplied"
+    >
+      Position applied
+    </option>
+  </select>,
+]
+`;
+
+exports[`CandidatesListSortBySelectBox should render an enable select box 1`] = `
+Array [
+  <label
+    className="selectBoxLabel"
+  >
+    Sort by
+  </label>,
+  <select
+    className="selectBox"
+    onChange={[Function]}
+  >
+    <option
+      value="none"
+    >
+      No sort
+    </option>
+    <option
+      value="yearOfExperience"
+    >
+      Years of experience
+    </option>
+    <option
+      value="applicationDate"
+    >
+      Application date
+    </option>
+    <option
+      value="positionApplied"
+    >
+      Position applied
+    </option>
+  </select>,
+]
+`;

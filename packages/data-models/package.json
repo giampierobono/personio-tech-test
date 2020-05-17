@@ -9,6 +9,7 @@
   "scripts": {
     "prebuild": "npm run clean:dist",
     "build": "webpack",
+    "build:watch": "webpack --watch",
     "clean:dist": "rimraf dist/",
     "lint": "eslint 'src/**/*.ts' --quiet",
     "lint:fix": "eslint 'src/**/*.ts' --quiet --fix",

@@ -16,4 +16,11 @@ const PATHS = {
   dist: path.join(__dirname, './dist'),
 };
 
-module.exports = webpackCommon(PATHS, 'data-models');
+const partialConfig = webpackCommon(PATHS, 'ui-common-components');
+module.exports = {
+  ...partialConfig,
+  externals: {
+    react: 'react',
+    'react-dom': 'react-dom',
+  },
+};
