@@ -1,1 +1,1 @@
-export * from "./FilterCandidatesConfigModel";
+export * from './FilterCandidatesConfigModel';

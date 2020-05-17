@@ -23,8 +23,8 @@
     "build:api-sdk:prod": "cross-env ENV=production lerna run build --scope @personio/api-sdk",
     "build:data-models": "lerna run build --scope @personio/data-models",
     "build:data-models:prod": "cross-env ENV=production lerna run build --scope @personio/data-models",
-    "build:local:deps:prod": "npm run build:api-sdk:prod && npm run build:data-models:prod && npm run build:store:prod",
     "build:local:deps": "npm run build:api-sdk && npm run build:data-models && npm run build:store",
+    "build:local:deps:prod": "npm run build:api-sdk:prod && npm run build:data-models:prod && npm run build:store:prod",
     "build:store": "lerna run build --scope @personio/store",
     "build:store:prod": "cross-env ENV=production lerna run build --scope @personio/store",
     "clean:all": "npm run clean:dist:all && npm run clean:node_modules:all",
@@ -40,16 +40,52 @@
     "concurrently": "concurrently --kill-others-on-fail",
     "preinstall": "node scripts/check-npm.js",
     "postinstall": "lerna bootstrap --hoist && npm run build:local:deps",
+    "lint:all": "lerna run lint --parallel",
+    "lint:all:fix": "lerna run lint:fix --parallel",
+    "lint:api-sdk": "lerna run lint @scope @personio/api-sdk",
+    "lint:api-sdk:fix": "lerna run lint:fix @scope @personio/api-sdk",
+    "lint:data-models": "lerna run lint --scope @personio/data-models",
+    "lint:data-models:fix": "lerna run lint:fix --scope @personio/data-models",
+    "lint:store": "lerna run lint @scope @personio/store",
+    "lint:store:fix": "lerna run lint:fix @scope @personio/store",
     "sort-package-json:all": "npm run concurrently \"npm run sort-package-json:root\" \"lerna run sort-package-json --parallel\"",
     "sort-package-json:api-sdk": "lerna run sort-package-json --scope @personio/api-sdk",
-    "sort-package-json:store": "lerna run sort-package-json --scope @personio/store",
     "sort-package-json:data-models": "lerna run sort-package-json --scope @personio/data-models",
-    "sort-package-json:root": "sort-package-json package.json"
+    "sort-package-json:root": "sort-package-json package.json",
+    "sort-package-json:store": "lerna run sort-package-json --scope @personio/store"
   },
   "husky": {
     "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+      "prepare-commit-msg": "lint-staged && exec < /dev/tty && git cz --hook || true"
     }
+  },
+  "lint-staged": {
+    "*.html": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.scss": [
+      "stylelint --fix",
+      "git add"
+    ],
+    "*.ts": [
+      "eslint --fix -c .eslintrc.js",
+      "prettier --write",
+      "git add"
+    ],
+    "*.tsx": [
+      "eslint --fix -c .eslintrc.js",
+      "prettier --write",
+      "git add"
+    ]
   },
   "config": {
     "commitizen": {
@@ -57,10 +93,16 @@
     }
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
     "commitizen": "^4.1.2",
     "concurrently": "^5.2.0",
     "cross-env": "^7.0.2",
     "cz-conventional-changelog": "^3.2.0",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-prettier": "3.1.3",
+    "eslint-plugin-react": "^7.20.0",
     "husky": "^4.2.5",
     "lerna": "^3.21.0",
     "lint-staged": "^10.2.2",

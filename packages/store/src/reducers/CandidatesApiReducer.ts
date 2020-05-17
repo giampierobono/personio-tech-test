@@ -1,10 +1,10 @@
-import { Candidate, FatalError } from "@personio/api-sdk";
-import { createReducer } from "@reduxjs/toolkit";
+import { Candidate, FatalError } from '@personio/api-sdk';
 import {
   CandidatesListError,
   CandidatesListRetrieved,
   StartRetrieveCandidatesList,
-} from "../actions";
+} from '../actions';
+import { createReducer } from '@reduxjs/toolkit';
 
 export interface CandidatesApiState {
   readonly candidates: Array<Candidate>;

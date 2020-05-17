@@ -1,1 +1,1 @@
-export * from "./CandidatesSortByEnum";
+export * from './CandidatesSortByEnum';

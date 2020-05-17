@@ -1,31 +1,18 @@
-import { ApplicationStatus, Candidate } from "@personio/api-sdk";
-import {
-  CandidatesSortByEnum,
-  FilterCandidatesConfigModel,
-} from "@personio/data-models";
-import {
-  identity,
-  ifElse,
-  prop,
-  propSatisfies,
-  sortBy,
-  allPass,
-  filter,
-} from "ramda";
+import { ApplicationStatus, Candidate } from '@personio/api-sdk';
+import { CandidatesSortByEnum, FilterCandidatesConfigModel } from '@personio/data-models';
+import { allPass, filter, identity, ifElse, prop, propSatisfies, sortBy } from 'ramda';
 
 const candidateNameSatisfies = (filterName: string) =>
   propSatisfies(
     (name: string) =>
-      filterName.length === 0 ||
-      name.toLowerCase().includes(filterName.toLowerCase()),
-    "name"
+      filterName.length === 0 || name.toLowerCase().includes(filterName.toLowerCase()),
+    'name',
   );
 
 const candidateApplicationStatusSatisfies = (filterStatus: string) =>
   propSatisfies(
-    (status: ApplicationStatus) =>
-      filterStatus.length === 0 || (status as string) === filterStatus,
-    "status"
+    (status: ApplicationStatus) => filterStatus.length === 0 || (status as string) === filterStatus,
+    'status',
   );
 
 const candidatePositionAppliedSatisfies = (position: string) =>
@@ -33,12 +20,10 @@ const candidatePositionAppliedSatisfies = (position: string) =>
     (positionApplied: string) =>
       positionApplied.length === 0 ||
       positionApplied.toLowerCase().includes(position.toLowerCase()),
-    "positionApplied"
+    'positionApplied',
   );
 
-const getFilterPredicates = (
-  filterCandidatesConfig: FilterCandidatesConfigModel
-) =>
+const getFilterPredicates = (filterCandidatesConfig: FilterCandidatesConfigModel) =>
   allPass([
     candidateNameSatisfies(filterCandidatesConfig.name),
     candidateApplicationStatusSatisfies(filterCandidatesConfig.status),
@@ -47,15 +32,15 @@ const getFilterPredicates = (
 
 export const sortCandidatesBy = (
   candidates: Array<Candidate>,
-  sortByProp: CandidatesSortByEnum
+  sortByProp: CandidatesSortByEnum,
 ): Array<Candidate> =>
   ifElse(
     () => sortByProp !== CandidatesSortByEnum.None,
     sortBy(prop(sortByProp)),
-    identity
+    identity,
   )(candidates);
 
 export const filterCandidates = (
   candidates: Array<Candidate>,
-  filterCandidatesConfig: FilterCandidatesConfigModel
+  filterCandidatesConfig: FilterCandidatesConfigModel,
 ) => filter(getFilterPredicates(filterCandidatesConfig))(candidates);

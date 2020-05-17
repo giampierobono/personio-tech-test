@@ -1,21 +1,18 @@
-import { Candidate, FatalError } from "@personio/api-sdk";
 import {
-  createAction,
   ActionCreatorWithPayload,
   ActionCreatorWithoutPayload,
-} from "@reduxjs/toolkit";
+  createAction,
+} from '@reduxjs/toolkit';
+import { Candidate, FatalError } from '@personio/api-sdk';
 
-export const StartRetrieveCandidatesList =
-  "[Candidates API] Start retrieving candidates list";
+export const StartRetrieveCandidatesList = '[Candidates API] Start retrieving candidates list';
 
-export const CandidatesListRetrieved =
-  "[Candidates API] Candidates list retrieved";
+export const CandidatesListRetrieved = '[Candidates API] Candidates list retrieved';
 
-export const CandidatesListError =
-  "[Candidates API] Error retrieving candidates list";
+export const CandidatesListError = '[Candidates API] Error retrieving candidates list';
 
 export const startRetrieveCandidatesListAction: ActionCreatorWithoutPayload = createAction(
-  StartRetrieveCandidatesList
+  StartRetrieveCandidatesList,
 );
 
 export const candidatesListRetrievedAction: ActionCreatorWithPayload<Array<
@@ -26,5 +23,5 @@ export const candidatesListRetrievedAction: ActionCreatorWithPayload<Array<
 
 export const candidatesListErrorAction: ActionCreatorWithPayload<FatalError> = createAction(
   CandidatesListError,
-  (error: FatalError) => ({ payload: error })
+  (error: FatalError) => ({ payload: error }),
 );

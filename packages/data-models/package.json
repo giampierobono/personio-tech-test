@@ -10,9 +10,12 @@
     "prebuild": "npm run clean:dist",
     "build": "webpack",
     "clean:dist": "rimraf dist/",
+    "lint": "eslint 'src/**/*.ts' --quiet",
+    "lint:fix": "eslint 'src/**/*.ts' --quiet --fix",
     "sort-package-json": "sort-package-json"
   },
   "devDependencies": {
+    "eslint": "^6.6.0",
     "rimraf": "^3.0.2",
     "sort-package-json": "^1.42.2",
     "typescript": "~3.9.2",
