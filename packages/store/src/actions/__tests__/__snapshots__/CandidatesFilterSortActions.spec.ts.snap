@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CandidatesFilterSortActions setNewFilterCandidatesConfigAction should have correct structure 1`] = `
+Object {
+  "payload": Object {
+    "name": "Giampiero",
+    "positionApplied": "senior frontend",
+    "status": "waiting",
+  },
+  "type": "[Candidates list filter/sort] Set new filter config for candidates list",
+}
+`;
+
+exports[`CandidatesFilterSortActions setNewSortCandidatesConfigAction should have correct structure 1`] = `
+Object {
+  "payload": "applicationDate",
+  "type": "[Candidates list filter/sort] Set new sort config for candidates list",
+}
+`;

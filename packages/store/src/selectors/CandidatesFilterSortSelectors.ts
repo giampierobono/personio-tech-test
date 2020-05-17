@@ -9,7 +9,7 @@ const getFilterConfig = (state: CommonStateModel) => state.candidatesFilterSort.
 
 const getSortByConfig = (state: CommonStateModel) => state.candidatesFilterSort.sortBy;
 
-const getSortedCandidatesList = createSelector(
+export const getSortedCandidatesList = createSelector(
   getCandidates,
   getSortByConfig,
   (candidates: Array<Candidate>, sortByEnum: CandidatesSortByEnum): Array<Candidate> =>
