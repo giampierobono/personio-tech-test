@@ -1,5 +1,5 @@
 import { ActionCreatorWithPayload, createAction } from '@reduxjs/toolkit';
-import { CandidatesSortByEnum, FilterCandidatesConfigModel } from '@personio/data-models';
+import { FilterCandidatesConfigModel, SortCandidatesConfigModel } from '@personio/data-models';
 
 export const SetNewSortCandidatesConfig =
   '[Candidates list filter/sort] Set new sort config for candidates list';
@@ -7,9 +7,9 @@ export const SetNewSortCandidatesConfig =
 export const SetNEwFilterCandidateConfig =
   '[Candidates list filter/sort] Set new filter config for candidates list';
 
-export const setNewSortCandidatesConfigAction: ActionCreatorWithPayload<CandidatesSortByEnum> = createAction(
+export const setNewSortCandidatesConfigAction: ActionCreatorWithPayload<SortCandidatesConfigModel> = createAction(
   SetNewSortCandidatesConfig,
-  (sortBy: CandidatesSortByEnum) => ({ payload: sortBy }),
+  (sortByConfig: SortCandidatesConfigModel) => ({ payload: sortByConfig }),
 );
 
 export const setNewFilterCandidatesConfigAction: ActionCreatorWithPayload<Partial<

@@ -19,9 +19,15 @@ describe('CandidatesFilterSortReducer', () => {
   it('should set sortBy correctly on SetNewSortCandidatesConfig action', () => {
     const result = candidatesFilterSortReducer(
       candidatesFilterSortInitialState,
-      setNewSortCandidatesConfigAction(CandidatesSortByEnum.ApplicationDate),
+      setNewSortCandidatesConfigAction({
+        sortBy: CandidatesSortByEnum.ApplicationDate,
+        isAsc: true,
+      }),
     );
-    expect(result.sortBy).toBe(CandidatesSortByEnum.ApplicationDate);
+    expect(result.sortByConfig).toEqual({
+      sortBy: CandidatesSortByEnum.ApplicationDate,
+      isAsc: true,
+    });
   });
 
   it('should set filterConfig correctly on SetNEwFilterCandidateConfig action', () => {

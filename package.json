@@ -60,6 +60,7 @@
     "sort-package-json:store": "lerna run sort-package-json --scope @personio/store",
     "test:all": "lerna run test --parallel",
     "test:all:ci": "lerna run test --parallel -- -- --coverage",
+    "test:all:snapshots": "lerna run test --parallel -- -- -u",
     "test:store": "lerna run test --scope @personio/store",
     "test:store:snapshots": "lerna run test --scope @personio/store -- -- -u",
     "test:ui-common-components": "lerna run test --scope @personio/ui-common-components",

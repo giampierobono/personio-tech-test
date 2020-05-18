@@ -1,6 +1,6 @@
-import { ChangeEvent } from 'react';
+import { SortCandidatesConfigModel } from '@personio/data-models';
 
 export interface CandidatesListSortBySelectBoxPropertiesModel {
-  onChangeCallback: (changeEvent: ChangeEvent<HTMLSelectElement>) => void;
+  onChangeCallback: (sortCandidatesConfig: SortCandidatesConfigModel) => void;
   disabled: boolean;
 }

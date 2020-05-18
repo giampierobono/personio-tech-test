@@ -13,7 +13,10 @@ Object {
 
 exports[`CandidatesFilterSortActions setNewSortCandidatesConfigAction should have correct structure 1`] = `
 Object {
-  "payload": "applicationDate",
+  "payload": Object {
+    "isAsc": true,
+    "sortBy": "applicationDate",
+  },
   "type": "[Candidates list filter/sort] Set new sort config for candidates list",
 }
 `;
