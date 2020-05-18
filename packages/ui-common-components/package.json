@@ -17,7 +17,8 @@
     "test": "jest --config jest.config.js --runInBand"
   },
   "dependencies": {
-    "@personio/data-models": "*"
+    "@personio/data-models": "*",
+    "@personio/api-sdk": "*"
   },
   "devDependencies": {
     "@types/react-test-renderer": "^16.9.2",
