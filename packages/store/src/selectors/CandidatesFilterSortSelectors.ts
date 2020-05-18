@@ -1,4 +1,8 @@
-import { CandidatesSortByEnum, FilterCandidatesConfigModel } from '@personio/data-models';
+import {
+  CandidatesSortByEnum,
+  FilterCandidatesConfigModel,
+  SortCandidatesConfigModel,
+} from '@personio/data-models';
 import { filterCandidates, sortCandidatesBy } from '../utils';
 import { Candidate } from '@personio/api-sdk';
 import { CommonStateModel } from '../common-state.model';
@@ -7,13 +11,13 @@ import { getCandidates } from './CandidatesApiSelectors';
 
 const getFilterConfig = (state: CommonStateModel) => state.candidatesFilterSort.filterConfig;
 
-const getSortByConfig = (state: CommonStateModel) => state.candidatesFilterSort.sortBy;
+const getSortByConfig = (state: CommonStateModel) => state.candidatesFilterSort.sortByConfig;
 
 export const getSortedCandidatesList = createSelector(
   getCandidates,
   getSortByConfig,
-  (candidates: Array<Candidate>, sortByEnum: CandidatesSortByEnum): Array<Candidate> =>
-    sortCandidatesBy(candidates, sortByEnum),
+  (candidates: Array<Candidate>, sortByConfig: SortCandidatesConfigModel): Array<Candidate> =>
+    sortCandidatesBy(candidates, sortByConfig),
 );
 
 export const getFilteredSortedCandidatesList = createSelector(

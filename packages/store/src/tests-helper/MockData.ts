@@ -2015,7 +2015,7 @@ export const mockState = {
     error: undefined,
   },
   candidatesFilterSort: {
-    sortBy: 'applicationDate',
+    sortByConfig: { sortBy: 'applicationDate', isAsc: true },
     filterConfig: {
       name: 'vin',
       positionApplied: 'ass',

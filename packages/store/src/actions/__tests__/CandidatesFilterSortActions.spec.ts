@@ -9,7 +9,10 @@ describe('CandidatesFilterSortActions', () => {
   describe('setNewSortCandidatesConfigAction', () => {
     it('should have correct structure', () => {
       expect(
-        setNewSortCandidatesConfigAction(CandidatesSortByEnum.ApplicationDate),
+        setNewSortCandidatesConfigAction({
+          sortBy: CandidatesSortByEnum.ApplicationDate,
+          isAsc: true,
+        }),
       ).toMatchSnapshot();
     });
   });

@@ -1,6 +1,20 @@
 import { ApplicationStatus, Candidate } from '@personio/api-sdk';
-import { CandidatesSortByEnum, FilterCandidatesConfigModel } from '@personio/data-models';
-import { allPass, filter, identity, ifElse, prop, propSatisfies, sortBy } from 'ramda';
+import {
+  CandidatesSortByEnum,
+  FilterCandidatesConfigModel,
+  SortCandidatesConfigModel,
+} from '@personio/data-models';
+import {
+  allPass,
+  ascend,
+  descend,
+  filter,
+  identity,
+  ifElse,
+  prop,
+  propSatisfies,
+  sort,
+} from 'ramda';
 
 const candidateNameSatisfies = (filterName: string) =>
   propSatisfies(
@@ -32,11 +46,15 @@ const getFilterPredicates = (filterCandidatesConfig: FilterCandidatesConfigModel
 
 export const sortCandidatesBy = (
   candidates: Array<Candidate>,
-  sortByProp: CandidatesSortByEnum,
+  sortByPropConfig: SortCandidatesConfigModel,
 ): Array<Candidate> =>
   ifElse(
-    () => sortByProp !== CandidatesSortByEnum.None,
-    sortBy(prop(sortByProp)),
+    () => sortByPropConfig.sortBy !== CandidatesSortByEnum.None,
+    ifElse(
+      () => sortByPropConfig.isAsc,
+      sort(ascend(prop(sortByPropConfig.sortBy))),
+      sort(descend(prop(sortByPropConfig.sortBy))),
+    ),
     identity,
   )(candidates);
 

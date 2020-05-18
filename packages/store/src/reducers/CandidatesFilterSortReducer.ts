@@ -1,14 +1,21 @@
-import { CandidatesSortByEnum, FilterCandidatesConfigModel } from '@personio/data-models';
+import {
+  CandidatesSortByEnum,
+  FilterCandidatesConfigModel,
+  SortCandidatesConfigModel,
+} from '@personio/data-models';
 import { SetNEwFilterCandidateConfig, SetNewSortCandidatesConfig } from '../actions';
 import { createReducer } from '@reduxjs/toolkit';
 
 export interface CandidatesFilterSortState {
-  readonly sortBy: CandidatesSortByEnum;
+  readonly sortByConfig: SortCandidatesConfigModel;
   readonly filterConfig: FilterCandidatesConfigModel;
 }
 
 export const candidatesFilterSortInitialState: CandidatesFilterSortState = {
-  sortBy: CandidatesSortByEnum.None,
+  sortByConfig: {
+    sortBy: CandidatesSortByEnum.None,
+    isAsc: true,
+  },
   filterConfig: {
     name: '',
     positionApplied: '',
@@ -19,7 +26,7 @@ export const candidatesFilterSortInitialState: CandidatesFilterSortState = {
 export const candidatesFilterSortReducer = createReducer(candidatesFilterSortInitialState, {
   [SetNewSortCandidatesConfig]: (state: CandidatesFilterSortState, { payload }) => ({
     ...state,
-    sortBy: payload,
+    sortByConfig: { ...payload },
   }),
   [SetNEwFilterCandidateConfig]: (state: CandidatesFilterSortState, { payload }) => ({
     ...state,

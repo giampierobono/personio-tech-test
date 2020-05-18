@@ -12,24 +12,39 @@ Array [
     onChange={[Function]}
   >
     <option
-      value="none"
+      value="None"
     >
       No sort
     </option>
     <option
-      value="yearOfExperience"
+      value="YearOfExperienceAsc"
     >
-      Years of experience
+      Years of experience (asc)
     </option>
     <option
-      value="applicationDate"
+      value="YearOfExperienceDesc"
     >
-      Application date
+      Years of experience (desc)
     </option>
     <option
-      value="positionApplied"
+      value="ApplicationDateAsc"
     >
-      Position applied
+      Application date (asc)
+    </option>
+    <option
+      value="ApplicationDateDesc"
+    >
+      Application date (desc)
+    </option>
+    <option
+      value="PositionAppliedAsc"
+    >
+      Position applied (asc)
+    </option>
+    <option
+      value="PositionAppliedDesc"
+    >
+      Position applied (desc)
     </option>
   </select>,
 ]
@@ -47,24 +62,39 @@ Array [
     onChange={[Function]}
   >
     <option
-      value="none"
+      value="None"
     >
       No sort
     </option>
     <option
-      value="yearOfExperience"
+      value="YearOfExperienceAsc"
     >
-      Years of experience
+      Years of experience (asc)
     </option>
     <option
-      value="applicationDate"
+      value="YearOfExperienceDesc"
     >
-      Application date
+      Years of experience (desc)
     </option>
     <option
-      value="positionApplied"
+      value="ApplicationDateAsc"
     >
-      Position applied
+      Application date (asc)
+    </option>
+    <option
+      value="ApplicationDateDesc"
+    >
+      Application date (desc)
+    </option>
+    <option
+      value="PositionAppliedAsc"
+    >
+      Position applied (asc)
+    </option>
+    <option
+      value="PositionAppliedDesc"
+    >
+      Position applied (desc)
     </option>
   </select>,
 ]
