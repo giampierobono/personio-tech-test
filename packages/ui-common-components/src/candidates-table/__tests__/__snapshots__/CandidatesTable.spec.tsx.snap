@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CandidatesTable should render candidates table 1`] = `
+<div
+  className="wrapper"
+>
+  <table
+    className="table"
+  >
+    <caption>
+      List of candidates applying for Personio positions
+    </caption>
+    <thead
+      className="tableHeader"
+    >
+      <tr
+        className="tableHeaderRow"
+      >
+        <th>
+          Name
+        </th>
+        <th>
+          Email
+        </th>
+        <th>
+          Age
+        </th>
+        <th>
+          Years of experience
+        </th>
+        <th>
+          Position applied
+        </th>
+        <th>
+          Applied
+        </th>
+        <th>
+          Status
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        className="tableRow"
+      >
+        <td>
+          Alvin Satterfield
+        </td>
+        <td>
+          cornellbartell@connellyleannon.biz
+        </td>
+        <td>
+          22
+        </td>
+        <td>
+          5
+        </td>
+        <td>
+          Technician
+        </td>
+        <td>
+          2018-07-02
+        </td>
+        <td>
+          rejected
+        </td>
+      </tr>
+      <tr
+        className="tableRow"
+      >
+        <td>
+          Colette Morar
+        </td>
+        <td>
+          corinnestark@pacocha.co
+        </td>
+        <td>
+          21
+        </td>
+        <td>
+          3
+        </td>
+        <td>
+          Designer
+        </td>
+        <td>
+          2017-11-18
+        </td>
+        <td>
+          waiting
+        </td>
+      </tr>
+      <tr
+        className="tableRow"
+      >
+        <td>
+          Rosalind Rath DDS
+        </td>
+        <td>
+          sandyankunding@marks.io
+        </td>
+        <td>
+          40
+        </td>
+        <td>
+          15
+        </td>
+        <td>
+          Orchestrator
+        </td>
+        <td>
+          2018-01-31
+        </td>
+        <td>
+          approved
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`CandidatesTable should render error message 1`] = `
+<div
+  className="wrapper"
+>
+  <div
+    className="alertWrapper"
+    role="alert"
+  >
+    <span>
+      Error retrieving candidates list. Please retry
+    </span>
+    <button
+      className="error  button"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      Retry
+    </button>
+  </div>
+</div>
+`;
+
+exports[`CandidatesTable should render loading spinner 1`] = `
+<div
+  className="wrapper"
+>
+  <div
+    className="loader"
+  />
+</div>
+`;

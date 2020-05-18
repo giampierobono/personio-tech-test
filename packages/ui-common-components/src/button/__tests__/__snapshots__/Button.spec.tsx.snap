@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should render a base button 1`] = `
+<button
+  className="base  button"
+  disabled={false}
+  onClick={[Function]}
+  type="button"
+>
+  test
+</button>
+`;
+
+exports[`Button should render a disabled button 1`] = `
+<button
+  className="base disabled button"
+  disabled={true}
+  onClick={[Function]}
+  type="button"
+>
+  test
+</button>
+`;
+
+exports[`Button should render an error button 1`] = `
+<button
+  className="error  button"
+  disabled={false}
+  onClick={[Function]}
+  type="button"
+>
+  test
+</button>
+`;

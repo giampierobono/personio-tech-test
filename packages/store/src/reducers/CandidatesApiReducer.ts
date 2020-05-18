@@ -26,10 +26,12 @@ export const candidatesApiReducer = createReducer(candidatesApiInitialState, {
     ...state,
     candidates: [...payload],
     isLoading: false,
+    error: undefined,
   }),
   [CandidatesListError]: (state: CandidatesApiState, { payload }) => ({
     ...state,
     error: { ...payload },
+    candidates: [],
     isLoading: false,
   }),
 });
