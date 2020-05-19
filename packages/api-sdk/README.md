@@ -1,4 +1,4 @@
-#@personio/api-sdk
+# @personio/api-sdk
 
 This represent a set of classes and method to interact with the backend.
 
