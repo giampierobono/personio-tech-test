@@ -1,6 +1,5 @@
-import { SortCandidatesConfigModel } from '@personio/data-models';
-
 export interface CandidatesListSortBySelectBoxPropertiesModel {
-  onChangeCallback: (sortCandidatesConfig: SortCandidatesConfigModel) => void;
+  onChangeCallback: (sortCandidatesConfigKey: string) => void;
+  preSelected: string;
   disabled: boolean;
 }
