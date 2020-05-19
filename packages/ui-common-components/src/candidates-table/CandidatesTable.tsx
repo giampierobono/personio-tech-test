@@ -1,7 +1,6 @@
 import { Button, ButtonTypesEnum } from '../button';
 import { CandidatesTablePropertiesModel } from './models';
 import React from 'react';
-import { Spinner } from '../spinner';
 import styles from './CandidatesTable.module.scss';
 
 const CandidatesTable = (props: CandidatesTablePropertiesModel): React.ReactElement => {
@@ -14,9 +13,7 @@ const CandidatesTable = (props: CandidatesTablePropertiesModel): React.ReactElem
 
   return (
     <div className={styles.wrapper}>
-      {props.isCandidatesListLoading ? (
-        <Spinner />
-      ) : props.hasError ? (
+      {props.hasError ? (
         <div role="alert" className={styles.alertWrapper}>
           <span>Error retrieving candidates list. Please retry</span>
           <Button
@@ -28,7 +25,9 @@ const CandidatesTable = (props: CandidatesTablePropertiesModel): React.ReactElem
         </div>
       ) : (
         <table className={styles.table}>
-          <caption>List of candidates applying for Personio positions</caption>
+          <caption className={styles.caption}>
+            List of candidates applying for Personio positions
+          </caption>
           <thead className={styles.tableHeader}>
             <tr className={styles.tableHeaderRow}>
               <th>Name</th>
