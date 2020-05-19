@@ -15,7 +15,7 @@ const DebouncedInput = (props: DebouncedInputPropertiesModel): React.ReactElemen
     }
   }, []);
 
-  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const onChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setValue(event.target.value);
     debounceSubject$.next(event.target.value);
   };
@@ -28,8 +28,9 @@ const DebouncedInput = (props: DebouncedInputPropertiesModel): React.ReactElemen
         name={props.name}
         type="text"
         value={value}
-        className={styles.input}
+        className={`${props.disabled ? styles.input + ' ' + styles.disabled : styles.input}`}
         onChange={onChange}
+        disabled={props.disabled}
       />
     </>
   );

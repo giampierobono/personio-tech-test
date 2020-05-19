@@ -1,15 +1,25 @@
+@import '~@personio/styling/scss/colors';
+@import '~@personio/styling/scss/variables';
+@import '~@personio/styling/scss/base';
+@import '~@personio/styling/scss/functions';
+@import '~@personio/styling/scss/mixins';
+
 .input {
   display: block;
   width: 100%;
   height: calc(1.5em + 0.75rem + 2px);
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  font-weight: 400;
+  padding: pixel-to-rem(6) pixel-to-rem(12);
+  font-size: $font-size-m;
+  font-weight: $font-weight-normal;
   line-height: 1.5;
-  color: #495057;
-  background-color: #fff;
+  color: $darker-grey;
+  background-color: $light-base;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
+  border: pixel-to-rem(1) solid $lighter-grey;
+  border-radius: $space-4;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.disabled {
+  @include create-disabled();
 }

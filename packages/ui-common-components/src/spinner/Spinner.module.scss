@@ -1,13 +1,21 @@
+@import '~@personio/styling/scss/colors';
+@import '~@personio/styling/scss/base';
+@import '~@personio/styling/scss/functions';
+
 .loader {
-  border: 16px solid #f3f3f3;
+  border: $space-4 solid $lighter-base;
+  border-top: $space-4 solid $blue;
   border-radius: 50%;
-  border-top: 16px solid #3498db;
-  width: 50px;
-  height: 50px;
+  width: pixel-to-rem(50);
+  height: pixel-to-rem(50);
   animation: spin 4s linear infinite;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
