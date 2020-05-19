@@ -7,7 +7,9 @@ exports[`CandidatesTable should render candidates table 1`] = `
   <table
     className="table"
   >
-    <caption>
+    <caption
+      className="caption"
+    >
       List of candidates applying for Personio positions
     </caption>
     <thead
@@ -140,15 +142,5 @@ exports[`CandidatesTable should render error message 1`] = `
       Retry
     </button>
   </div>
-</div>
-`;
-
-exports[`CandidatesTable should render loading spinner 1`] = `
-<div
-  className="wrapper"
->
-  <div
-    className="loader"
-  />
 </div>
 `;

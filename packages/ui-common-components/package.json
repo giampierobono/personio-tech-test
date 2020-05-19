@@ -13,12 +13,13 @@
     "clean:dist": "rimraf dist/",
     "lint": "eslint 'src/**/*.ts' --quiet",
     "lint:fix": "eslint 'src/**/*.ts' --quiet --fix",
+    "lint:style": "stylelint --config '../../.stylelintrc' ./**/*.scss",
     "sort-package-json": "sort-package-json",
     "test": "jest --config jest.config.js --runInBand"
   },
   "dependencies": {
-    "@personio/data-models": "*",
     "@personio/api-sdk": "*",
+    "@personio/data-models": "*",
     "@personio/styling": "*"
   },
   "devDependencies": {
@@ -31,10 +32,11 @@
     "react-dom": "^16.13.1",
     "react-test-renderer": "^16.13.1",
     "rimraf": "^3.0.2",
+    "rxjs": "^6.5.5",
     "sort-package-json": "^1.42.2",
+    "stylelint": "^13.4.0",
     "typescript": "~3.9.2",
-    "webpack": "4.42.0",
-    "rxjs": "^6.5.5"
+    "webpack": "4.42.0"
   },
   "peerDependencies": {
     "react": "^16.13.1",

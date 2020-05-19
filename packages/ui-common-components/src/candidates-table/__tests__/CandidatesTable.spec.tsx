@@ -42,19 +42,6 @@ describe('CandidatesTable', () => {
       <CandidatesTable
         candidates={mockCandidates as Array<Candidate>}
         hasError={false}
-        isCandidatesListLoading={false}
-        retryCallback={() => true}
-      />,
-    );
-    expect(component.toJSON()).toMatchSnapshot();
-  });
-
-  it('should render loading spinner', () => {
-    const component = renderer.create(
-      <CandidatesTable
-        candidates={[]}
-        hasError={false}
-        isCandidatesListLoading={true}
         retryCallback={() => true}
       />,
     );
@@ -63,12 +50,7 @@ describe('CandidatesTable', () => {
 
   it('should render error message', () => {
     const component = renderer.create(
-      <CandidatesTable
-        candidates={[]}
-        hasError={true}
-        isCandidatesListLoading={false}
-        retryCallback={() => true}
-      />,
+      <CandidatesTable candidates={[]} hasError={true} retryCallback={() => true} />,
     );
     expect(component.toJSON()).toMatchSnapshot();
   });

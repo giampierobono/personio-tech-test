@@ -1,13 +1,13 @@
-@import "~@personio/styling/scss/functions";
-@import "~@personio/styling/scss/base";
-@import "~@personio/styling/scss/colors";
+@import '~@personio/styling/scss/functions';
+@import '~@personio/styling/scss/base';
+@import '~@personio/styling/scss/colors';
+@import '~@personio/styling/scss/mixins';
 
 .wrapper {
   display: flex;
   justify-content: center;
-  align-content: center;
-  align-items: center;
-  height: pixel-to-rem(800);
+  align-items: flex-start;
+  max-height: pixel-to-rem(700);
   overflow: auto;
 }
 
@@ -44,6 +44,11 @@
 }
 
 .alertWrapper {
+  align-items: center;
   display: flex;
   flex-direction: column;
+}
+
+.caption {
+  @include screen-reader-only();
 }
