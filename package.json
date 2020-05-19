@@ -51,6 +51,8 @@
     "lint:all:fix": "lerna run lint:fix --parallel",
     "lint:api-sdk": "lerna run lint @scope @personio/api-sdk",
     "lint:api-sdk:fix": "lerna run lint:fix --scope @personio/api-sdk",
+    "lint:candidates-board": "lerna run lint --scope @personio/candidates-board",
+    "lint:candidates-board:fix": "lerna run lint:fix --scope @personio/candidates-board",
     "lint:data-models": "lerna run lint --scope @personio/data-models",
     "lint:data-models:fix": "lerna run lint:fix --scope @personio/data-models",
     "lint:store": "lerna run lint --scope @personio/store",
@@ -97,12 +99,12 @@
       "git add"
     ],
     "*.ts": [
-      "eslint --fix -c .eslintrc.js",
+      "eslint --fix -c .eslintrc.js --quiet",
       "prettier --write",
       "git add"
     ],
     "*.tsx": [
-      "eslint --fix -c .eslintrc.js",
+      "eslint --fix -c .eslintrc.js --quiet",
       "prettier --write",
       "git add"
     ]
