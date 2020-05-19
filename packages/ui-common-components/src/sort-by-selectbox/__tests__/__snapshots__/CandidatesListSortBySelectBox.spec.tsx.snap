@@ -1,5 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`CandidatesListSortBySelectBox should preselect None if unknown option set 1`] = `
+Array [
+  <label
+    className="selectBoxLabel"
+  >
+    Sort by
+  </label>,
+  <select
+    className="selectBox disabled"
+    defaultValue="idontexist"
+    onChange={[Function]}
+  >
+    <option
+      value="None"
+    >
+      No sort
+    </option>
+    <option
+      value="YearOfExperienceAsc"
+    >
+      Years of experience (asc)
+    </option>
+    <option
+      value="YearOfExperienceDesc"
+    >
+      Years of experience (desc)
+    </option>
+    <option
+      value="ApplicationDateAsc"
+    >
+      Application date (asc)
+    </option>
+    <option
+      value="ApplicationDateDesc"
+    >
+      Application date (desc)
+    </option>
+    <option
+      value="PositionAppliedAsc"
+    >
+      Position applied (asc)
+    </option>
+    <option
+      value="PositionAppliedDesc"
+    >
+      Position applied (desc)
+    </option>
+  </select>,
+]
+`;
+
 exports[`CandidatesListSortBySelectBox should render a disabled select box 1`] = `
 Array [
   <label
@@ -9,6 +60,7 @@ Array [
   </label>,
   <select
     className="selectBox disabled"
+    defaultValue="YearOfExperienceDesc"
     onChange={[Function]}
   >
     <option
@@ -59,6 +111,7 @@ Array [
   </label>,
   <select
     className="selectBox"
+    defaultValue="YearOfExperienceDesc"
     onChange={[Function]}
   >
     <option
