@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Debounce input should render correctly 1`] = `
+Array [
+  <label
+    htmlFor="id-test"
+  >
+    test label
+  </label>,
+  <input
+    className="input"
+    id="id-test"
+    name="test"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />,
+]
+`;
