@@ -25,7 +25,13 @@ const candidateNameSatisfies = (filterName: string) =>
 
 const candidateApplicationStatusSatisfies = (filterStatus: string) =>
   propSatisfies(
-    (status: ApplicationStatus) => filterStatus.length === 0 || (status as string) === filterStatus,
+    (status: ApplicationStatus) =>
+      filterStatus.length === 0 ||
+      Object.keys(ApplicationStatus).some(
+        (key) =>
+          ApplicationStatus[key].includes(filterStatus.toLowerCase()) &&
+          key.toLowerCase() === status,
+      ),
     'status',
   );
 
