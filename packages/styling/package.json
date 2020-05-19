@@ -2,14 +2,14 @@
   "name": "@personio/styling",
   "version": "1.0.0",
   "description": "Style guidelines",
+  "license": "MIT",
+  "author": "Giampiero Bono (giampiero.bono@hotmail.it)",
   "main": "index.js",
   "scripts": {
     "clean:dist": "rimraf dist/",
-    "lint:style": "stylelint ./**/*.scss",
+    "lint:style": "stylelint --config '../../.stylelintrc' ./**/*.scss",
     "sort-package-json": "sort-package-json"
   },
-  "author": "Giampiero Bono (giampiero.bono@hotmail.it)",
-  "license": "MIT",
   "devDependencies": {
     "rimraf": "^3.0.2",
     "sort-package-json": "^1.42.2",
