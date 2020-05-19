@@ -1,0 +1,14 @@
+@import "functions";
+
+$header-height: pixel-to-rem(54);
+$min-width: pixel-to-rem(256);
+$max-width: pixel-to-rem(300);
+$space: pixel-to-rem(4);
+$space-2: $space * 2;
+$space-3: $space * 3;
+$space-4: $space * 4;
+
+$font-size-xl: pixel-to-rem(32);
+$font-size-l: pixel-to-rem(20);
+$font-size-m: pixel-to-rem(16);
+$font-size-s: pixel-to-rem(12);
