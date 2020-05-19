@@ -21,6 +21,8 @@
   "scripts": {
     "build:api-sdk": "lerna run build --scope @personio/api-sdk",
     "build:api-sdk:prod": "cross-env ENV=production lerna run build --scope @personio/api-sdk",
+    "prebuild:candiates-board:prod": "npm run build:local:deps:prod",
+    "build:candiates-board:prod": "lerna run build --scope @personio/candidates-board",
     "build:data-models": "lerna run build --scope @personio/data-models",
     "build:data-models:prod": "cross-env ENV=production lerna run build --scope @personio/data-models",
     "build:data-models:watch": "lerna run build:watch --scope @personio/data-models",
@@ -53,11 +55,16 @@
     "lint:data-models:fix": "lerna run lint:fix --scope @personio/data-models",
     "lint:store": "lerna run lint --scope @personio/store",
     "lint:store:fix": "lerna run lint:fix --scope @personio/store",
+    "lint:style:all": "lerna run lint:style --parallel",
+    "lint:style:candidates-board": "lerna run lint:style --scope @personio/candidates-board",
+    "lint:style:styling": "lerna run lint:style --scope @personio/styling",
+    "lint:style:ui-common-components": "lerna run lint:style --scope @personio/ui-common-components",
     "sort-package-json:all": "npm run concurrently \"npm run sort-package-json:root\" \"lerna run sort-package-json --parallel\"",
     "sort-package-json:api-sdk": "lerna run sort-package-json --scope @personio/api-sdk",
     "sort-package-json:data-models": "lerna run sort-package-json --scope @personio/data-models",
     "sort-package-json:root": "sort-package-json package.json",
     "sort-package-json:store": "lerna run sort-package-json --scope @personio/store",
+    "start:candidates-board": "lerna run start --scope @personio/candidates-board",
     "test:all": "lerna run test --parallel",
     "test:all:ci": "lerna run test --parallel -- -- --coverage",
     "test:all:snapshots": "lerna run test --parallel -- -- -u",
@@ -69,7 +76,7 @@
   "husky": {
     "hooks": {
       "prepare-commit-msg": "lint-staged && exec < /dev/tty && git cz --hook || true",
-      "pre-push": "npm run test:all:ci"
+      "pre-push": "npm run lint:all && npm run lint:style:all && npm run test:all:ci"
     }
   },
   "lint-staged": {
