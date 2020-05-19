@@ -9,6 +9,26 @@ Array [
   </label>,
   <input
     className="input"
+    disabled={false}
+    id="id-test"
+    name="test"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />,
+]
+`;
+
+exports[`Debounce input should render correctly a disabled 1`] = `
+Array [
+  <label
+    htmlFor="id-test"
+  >
+    test label
+  </label>,
+  <input
+    className="input disabled"
+    disabled={true}
     id="id-test"
     name="test"
     onChange={[Function]}

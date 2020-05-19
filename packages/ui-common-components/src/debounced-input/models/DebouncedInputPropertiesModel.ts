@@ -3,5 +3,6 @@ export interface DebouncedInputPropertiesModel {
   label: string;
   defaultValue?: string;
   placeHolder: string;
+  disabled: boolean;
   onChangeCallback: (newValue: string) => void;
 }

@@ -18,7 +18,8 @@
   },
   "dependencies": {
     "@personio/data-models": "*",
-    "@personio/api-sdk": "*"
+    "@personio/api-sdk": "*",
+    "@personio/styling": "*"
   },
   "devDependencies": {
     "@types/react-test-renderer": "^16.9.2",
