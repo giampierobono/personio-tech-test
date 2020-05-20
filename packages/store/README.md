@@ -86,7 +86,7 @@ so computation won't be repeated if selector already have a result for it.
 
 ## Utils
 
-| Name               | Inputs                                                                               | Return                                   | Description                            |
-| ------------------ | ------------------------------------------------------------------------------------ | ---------------------------------------- | -------------------------------------- |
-| `sortCandidatesBy` | `candidates: Array<Candidates>, sortByPropConfig: SortCandidatesConfigModel`         | `(properties: Property[]) => Property[]` | Returns a sorted array of Candidates   |
-| `filterCandidates` | `candidates: Array<Candidates>, filterCandidatesConfig: FilterCandidatesConfigModel` | `(properties: Property[]) => Property[]` | Returns a filtered array of Candidates |
+| Name               | Inputs                                                                               | Return               | Description                            |
+| ------------------ | ------------------------------------------------------------------------------------ | -------------------- | -------------------------------------- |
+| `sortCandidatesBy` | `candidates: Array<Candidates>, sortByPropConfig: SortCandidatesConfigModel`         | `Array<Candidates>`  | Returns a sorted array of Candidates   |
+| `filterCandidates` | `candidates: Array<Candidates>, filterCandidatesConfig: FilterCandidatesConfigModel` | `(Array<Canddiates>` | Returns a filtered array of Candidates |
