@@ -5,7 +5,7 @@ import {
   startRetrieveCandidatesListAction,
 } from '@personio/store';
 import { ConnectedProps, connect } from 'react-redux';
-import { FilterCandidatesContainer, SortCandidatesContainer } from './components';
+import { ErrorBoundary, FilterCandidatesContainer, SortCandidatesContainer } from './components';
 import React, { Suspense, useEffect } from 'react';
 import { Spinner } from '@personio/ui-common-components';
 
@@ -32,32 +32,34 @@ const AppContainer = (props: AppContainerPropertiesType) => {
   }, []);
 
   return (
-    <div className="app">
-      <header className="app__header">
-        <h1 title="Personio candidates list" className="app__title">
-          List of candidates applying for positions at Personio
-        </h1>
-      </header>
-      <main className="app__container">
-        <div className="app__content">
-          <div className="app__content--filters">
-            <SortCandidatesContainer />
-            <FilterCandidatesContainer />
+    <ErrorBoundary>
+      <div className="app">
+        <header className="app__header">
+          <h1 title="Personio candidates list" className="app__title">
+            List of candidates applying for positions at Personio
+          </h1>
+        </header>
+        <main className="app__container">
+          <div className="app__content">
+            <div className="app__content--filters">
+              <SortCandidatesContainer />
+              <FilterCandidatesContainer />
+            </div>
+            <div className="app__content--candidates">
+              {props.isCandidatesListLoading ? (
+                <div className="spinner">
+                  <Spinner />
+                </div>
+              ) : (
+                <Suspense fallback={<Spinner />}>
+                  <LazyCandidatesBoard />
+                </Suspense>
+              )}
+            </div>
           </div>
-          <div className="app__content--candidates">
-            {props.isCandidatesListLoading ? (
-              <div className="spinner">
-                <Spinner />
-              </div>
-            ) : (
-              <Suspense fallback={<Spinner />}>
-                <LazyCandidatesBoard />
-              </Suspense>
-            )}
-          </div>
-        </div>
-      </main>
-    </div>
+        </main>
+      </div>
+    </ErrorBoundary>
   );
 };
 
