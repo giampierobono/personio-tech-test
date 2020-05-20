@@ -6,7 +6,6 @@
 .wrapper {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
   max-height: pixel-to-rem(700);
   overflow: auto;
 }
@@ -45,6 +44,7 @@
 
 .alertWrapper {
   align-items: center;
+  align-self: center;
   display: flex;
   flex-direction: column;
 }
